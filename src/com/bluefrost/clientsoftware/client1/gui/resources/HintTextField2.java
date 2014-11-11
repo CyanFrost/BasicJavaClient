@@ -20,6 +20,9 @@ public class HintTextField2 extends JTextField {
 	public HintTextField2(String hint) {
         _hint = hint;
     }
+	public HintTextField2(){
+		
+	}
     @Override
     public void paint(Graphics g) {
         super.paint(g);
@@ -36,5 +39,5 @@ public class HintTextField2 extends JTextField {
             g.drawString(_hint, ins.left, h / 2 + fm.getAscent() / 2 - 2);
         }
     }
-    private final String _hint;
+    private String _hint = "";
 }
