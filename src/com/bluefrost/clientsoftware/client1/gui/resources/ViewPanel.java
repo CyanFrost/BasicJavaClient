@@ -86,40 +86,23 @@ public class ViewPanel extends JTextPane {
 
 	public static Color getColor(char c){
 		switch (c){
-		case '0': 
-			return Black;
-		case 'r': 
-			return Black;
-		case '1': 
-			return DarkBlue;
-		case '2': 
-			return DarkGreen;
-		case '3': 
-			return DarkAqua;
-		case '4': 
-			return DarkRed;
-		case '5': 
-			return DarkPurple;
-		case '6': 
-			return Orange;
-		case '7': 
-			return Gray;
-		case '8': 
-			return DarkGray;
-		case '9': 
-			return Blue;
-		case 'a': 
-			return LightGreen;
-		case 'b': 
-			return LightBlue;
-		case 'c': 
-			return LightRed;
-		case 'd': 
-			return Pink;
-		case 'e': 
-			return LightYellow;
-		case 'f': 
-			return Gray;
+			case '0': return Black;
+			case 'r': return Black;
+			case '1': return DarkBlue;
+			case '2': return DarkGreen;
+			case '3': return DarkAqua;
+			case '4': return DarkRed;
+			case '5': return DarkPurple;
+			case '6': return Orange;
+			case '7': return Gray;
+			case '8': return DarkGray;
+			case '9': return Blue;
+			case 'a': return LightGreen;
+			case 'b': return LightBlue;
+			case 'c': return LightRed;
+			case 'd': return Pink;
+			case 'e': return LightYellow;
+			case 'f': return Gray;
 		}
 		return null;
 	}
