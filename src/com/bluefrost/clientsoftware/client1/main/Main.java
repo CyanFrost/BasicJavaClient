@@ -1,5 +1,6 @@
 package com.bluefrost.clientsoftware.client1.main;
 
+import com.bluefrost.clientsoftware.client1.connection.Connection;
 import com.bluefrost.clientsoftware.client1.events.EventSystemWrapper;
 import com.bluefrost.clientsoftware.client1.listeners.MessageEventListener;
 
@@ -14,6 +15,7 @@ public class Main {
 	
 	public static void main(String args[]){
 		try{
+			Connection.connect("LocalHost", 9090);
 			
 		}catch(Exception e){}
 	}
