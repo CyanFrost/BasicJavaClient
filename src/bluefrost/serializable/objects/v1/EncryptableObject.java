@@ -24,6 +24,7 @@ public class EncryptableObject implements Serializable{
 
 	public EncryptedObject encrypt(Key key){
 	    try{
+	    	System.out.println("Encrypting!");
 			return new EncryptedObject(this, key);
 		}catch(Exception e){ e.printStackTrace(); return null;}
 	}

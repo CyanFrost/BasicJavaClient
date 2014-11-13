@@ -11,7 +11,7 @@ import java.util.List;
 
 /*
  * Created by:
- * Blue/CyanFrost 
+ * (Blue/Cyan)Frost 
  * Ellie/Eleanor <3
  * 
  * Date: some time in October.

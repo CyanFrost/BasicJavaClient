@@ -4,6 +4,7 @@ import bluefrost.serializable.objects.v1.Utils;
 
 import com.bluefrost.clientsoftware.client1.events.EventSystemWrapper.EventSystem.EventHandler;
 import com.bluefrost.clientsoftware.client1.events.EventSystemWrapper.EventSystem.Listener;
+import com.bluefrost.clientsoftware.client1.main.Main;
 
 public class MessageEventListener implements Listener{
 
@@ -12,10 +13,10 @@ public class MessageEventListener implements Listener{
 		try{
 			Object o = Utils.fromByteArray(me.getBytes());
 			System.out.println("Recieved Object! Class: " + o.getClass());
+			Main.getDefaultEventSystem().listen(o);
 		}catch(Exception e){e.printStackTrace();}
 	}
 	
-
 	public static class MessageEvent {
 		private byte[]  b = null;
 		public byte[] getBytes(){return b;}

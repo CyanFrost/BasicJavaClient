@@ -59,9 +59,9 @@ public class ViewPanel extends JTextPane {
 	public ViewPanel setBold(boolean b){StyleConstants.setBold(this.style, b);return this;}
 
 	public ViewPanel setStrikeThrough(boolean b){StyleConstants.setStrikeThrough(this.style, b);return this;}
-	
+
 	public ViewPanel setUnderline(boolean b){StyleConstants.setUnderline(this.style, b);return this;}
-	
+
 	public void reset(){
 		this.setItalic(false);
 		this.setBold(false);
@@ -69,7 +69,7 @@ public class ViewPanel extends JTextPane {
 		this.setUnderline(false);
 		StyleConstants.setForeground(this.style, Color.white);
 	}
-	
+
 	public ViewPanel setColor(Color c){
 		if(c == null){return this;}
 		reset();
@@ -112,6 +112,49 @@ public class ViewPanel extends JTextPane {
 		case 'f': return Gray;
 		}
 		return null;
+	}
+
+
+
+
+
+	private static String[][] replaceColors = {
+		{ "0;30;22", "0" }, 
+		{ "0;30;22", "r" }, 
+		{ "0;34;22", "1" }, 
+		{ "0;32;22", "2" }, 
+		{ "0;36;22", "3" }, 
+		{ "0;31;22", "4" }, 
+		{ "0;35;22", "5" }, 
+		{ "0;33;22", "6" }, 
+		{ "0;37;22", "7" }, 
+		{ "0;30;1", "8" }, 
+		{ "0;34;1", "9" }, 
+		{ "0;32;1", "a" }, 
+		{ "0;36;1", "b" }, 
+		{ "0;31;1", "c" }, 
+		{ "0;35;1", "d" }, 
+		{ "0;33;1", "e" }, 
+		{ "0;37;1", "f" }, 
+		{ "21", "B" }, 
+		{ "4", "U" }, 
+		{ "3", "I" }, 
+		{ "9", "S" } };
+
+	public static String change(String s){
+		s = s.replaceAll("\033\\[m", "");
+		for(String[] rc : replaceColors){
+			s = s.replaceAll("\033\\[" + rc[0] + "m", '§' + rc[1]);
+		}
+		return s;
+	}
+
+	public static String removeColor(String msg){
+		try{
+			return msg.replaceAll("\033\\[[;\\d]*m", "");
+		}
+		catch(Exception e){}
+		return msg;
 	}
 
 }
