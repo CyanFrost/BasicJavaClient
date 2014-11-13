@@ -42,7 +42,7 @@ public class Connection {
 	}
 	
 	public static InputStream getInputStream() throws IOException{return sock.getInputStream();}
-	/*
+	
 	@Deprecated public static void sendObject(byte[] bytes){
 		try{
 			b.clear();
@@ -51,7 +51,7 @@ public class Connection {
 			sock.getOutputStream().flush();
 		}catch(Exception e){}
 	}
-	*/
+	
 	public static void sendObject(EncryptableObject o){
 		try{
 			

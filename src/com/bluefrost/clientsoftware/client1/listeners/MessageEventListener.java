@@ -12,8 +12,9 @@ public class MessageEventListener implements Listener{
 	public void messageRecievedEvent(MessageEvent me){
 		try{
 			Object o = Utils.fromByteArray(me.getBytes());
-			System.out.println("Recieved Object! Class: " + o.getClass());
+			System.out.println("Recieved Object! Class: " + o.getClass().getSimpleName());
 			Main.getDefaultEventSystem().listen(o);
+			// TODO: Add a way to parse EncryptedObjects
 		}catch(Exception e){e.printStackTrace();}
 	}
 	

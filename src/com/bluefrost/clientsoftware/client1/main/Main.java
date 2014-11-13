@@ -1,10 +1,9 @@
 package com.bluefrost.clientsoftware.client1.main;
 
-import bluefrost.serializable.objects.v1.KeyObject;
-
 import com.bluefrost.clientsoftware.client1.connection.Connection;
 import com.bluefrost.clientsoftware.client1.events.EventSystemWrapper;
 import com.bluefrost.clientsoftware.client1.listeners.KeyObjectListener;
+import com.bluefrost.clientsoftware.client1.listeners.LoginSuccessListener;
 import com.bluefrost.clientsoftware.client1.listeners.MessageEventListener;
 import com.bluefrost.encryption.Crypto;
 
@@ -29,5 +28,6 @@ public class Main {
 	public static void registerListeners(){
 		esw.addListener(new MessageEventListener());
 		esw.addListener(new KeyObjectListener());
+		esw.addListener(new LoginSuccessListener());
 	}
 }
