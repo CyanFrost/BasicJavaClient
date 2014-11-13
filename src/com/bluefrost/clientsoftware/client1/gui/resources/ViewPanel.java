@@ -15,9 +15,9 @@ import javax.swing.text.StyledDocument;
  */
 
 public class ViewPanel extends JTextPane {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	public static final Color Black = new Color(0, 0, 0);
 	public static final Color DarkBlue = new Color(0, 0, 170);
 	public static final Color DarkGreen = new Color(0, 170, 0);
@@ -34,13 +34,13 @@ public class ViewPanel extends JTextPane {
 	public static final Color Pink = new Color(255, 85, 255);
 	public static final Color LightYellow = new Color(255, 255, 85);
 	public static final Color White = new Color(255, 255, 255);
-	
+
 	private StyleContext styleContext;
 	private StyledDocument content;
 	private Style style;
 
 	public ViewPanel(){
-		setBackground(Color.black);
+		setBackground(Color.BLACK);
 		setEditable(false);
 
 		this.styleContext = new StyleContext();
@@ -54,18 +54,25 @@ public class ViewPanel extends JTextPane {
 		StyleConstants.setFontSize(this.style, 13);
 	}
 
-	public void setItalic(boolean b){
-		StyleConstants.setItalic(this.style, b);
-	}
+	public ViewPanel setItalic(boolean b){StyleConstants.setItalic(this.style, b);return this;}
+
+	public ViewPanel setBold(boolean b){StyleConstants.setBold(this.style, b);return this;}
+
+	public ViewPanel setStrikeThrough(boolean b){StyleConstants.setStrikeThrough(this.style, b);return this;}
 	
-	public void setBold(boolean b){
-		StyleConstants.setBold(this.style, b);
+	public ViewPanel setUnderline(boolean b){StyleConstants.setUnderline(this.style, b);return this;}
+	
+	public void reset(){
+		this.setItalic(false);
+		this.setBold(false);
+		this.setStrikeThrough(false);
+		this.setUnderline(false);
+		StyleConstants.setForeground(this.style, Color.white);
 	}
 	
 	public ViewPanel setColor(Color c){
-		if (c == null){
-			return this;
-		}
+		if(c == null){return this;}
+		reset();
 		StyleConstants.setForeground(this.style, c);
 		return this;
 	}
@@ -86,24 +93,25 @@ public class ViewPanel extends JTextPane {
 
 	public static Color getColor(char c){
 		switch (c){
-			case '0': return Black;
-			case 'r': return Black;
-			case '1': return DarkBlue;
-			case '2': return DarkGreen;
-			case '3': return DarkAqua;
-			case '4': return DarkRed;
-			case '5': return DarkPurple;
-			case '6': return Orange;
-			case '7': return Gray;
-			case '8': return DarkGray;
-			case '9': return Blue;
-			case 'a': return LightGreen;
-			case 'b': return LightBlue;
-			case 'c': return LightRed;
-			case 'd': return Pink;
-			case 'e': return LightYellow;
-			case 'f': return Gray;
+		case '0': return Black;
+		case 'r': return Black;
+		case '1': return DarkBlue;
+		case '2': return DarkGreen;
+		case '3': return DarkAqua;
+		case '4': return DarkRed;
+		case '5': return DarkPurple;
+		case '6': return Orange;
+		case '7': return Gray;
+		case '8': return DarkGray;
+		case '9': return Blue;
+		case 'a': return LightGreen;
+		case 'b': return LightBlue;
+		case 'c': return LightRed;
+		case 'd': return Pink;
+		case 'e': return LightYellow;
+		case 'f': return Gray;
 		}
 		return null;
 	}
+
 }

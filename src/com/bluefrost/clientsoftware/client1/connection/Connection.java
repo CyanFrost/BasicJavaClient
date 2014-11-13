@@ -4,10 +4,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.Socket;
 import java.nio.ByteBuffer;
+import java.security.Key;
 
 import com.bluefrost.clientsoftware.client1.threads.ReaderThread;
 
 public class Connection {
+	
+	private static Key ConnectionKey = null; //will be null until an AES/RSA key is sent through in a KeyObject. Check if it is null before encrypting data.
+	public static Key getKey(){return ConnectionKey;}
 	
 	private static ByteBuffer b = ByteBuffer.allocate(8192);
 

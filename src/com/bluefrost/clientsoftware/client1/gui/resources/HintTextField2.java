@@ -40,5 +40,7 @@ public class HintTextField2 extends JTextField {
         }
     }
     
+    public void setHint(String hint){_hint = hint;}
+    
     private String _hint = "";
 }
