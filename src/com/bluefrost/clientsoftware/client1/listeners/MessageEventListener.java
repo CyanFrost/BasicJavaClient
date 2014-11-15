@@ -1,7 +1,9 @@
 package com.bluefrost.clientsoftware.client1.listeners;
 
+import bluefrost.serializable.objects.v1.EncryptedObject;
 import bluefrost.serializable.objects.v1.Utils;
 
+import com.bluefrost.clientsoftware.client1.connection.Connection;
 import com.bluefrost.clientsoftware.client1.events.EventSystemWrapper.EventSystem.EventHandler;
 import com.bluefrost.clientsoftware.client1.events.EventSystemWrapper.EventSystem.Listener;
 import com.bluefrost.clientsoftware.client1.main.Main;
@@ -11,10 +13,7 @@ public class MessageEventListener implements Listener{
 	@EventHandler
 	public void messageRecievedEvent(MessageEvent me){
 		try{
-			Object o = Utils.fromByteArray(me.getBytes());
-			System.out.println("Recieved Object! Class: " + o.getClass().getSimpleName());
-			Main.getDefaultEventSystem().listen(o);
-			// TODO: Add a way to parse EncryptedObjects
+			System.out.println(new String(me.b));
 		}catch(Exception e){e.printStackTrace();}
 	}
 	

@@ -17,12 +17,10 @@ public class KeyObjectListener implements Listener {
 	
 	@EventHandler
 	public void onKeyEvent(KeyObject event){
-		Connection.setKey(event.k);
-		if(!Connection.isLoggedIn()){Connection.sendObject(new LoginObject("root","toor").encrypt(event.k).toByteArray());Connection.setLogin(true);}
-		System.out.println("SAVED KEY! Type: " + preparedString(event.k));
+		
 	}
 	
-	private String preparedString(Key k){
+	public String preparedString(Key k){
 		if(k instanceof PrivateKey){
 			return "PrivateKey";
 		}else if(k instanceof PublicKey){

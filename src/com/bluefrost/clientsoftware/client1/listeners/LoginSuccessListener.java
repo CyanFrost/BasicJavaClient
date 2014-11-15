@@ -12,8 +12,7 @@ public class LoginSuccessListener implements Listener{
 
 	@EventHandler
 	public void Event(LoggedInSuccessObject event){
-		System.out.println("Sent PublicKey");
-		Connection.sendObject(new KeyObject(Crypto.getPubKey()).toByteArray());
+		
 	}
 	
 }
