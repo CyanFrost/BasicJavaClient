@@ -1,7 +1,10 @@
 package com.bluefrost.clientsoftware.client1.main;
 
+import bluefrost.serializable.objects.v1.LoginObject;
+
 import com.bluefrost.clientsoftware.client1.connection.Connection;
 import com.bluefrost.clientsoftware.client1.events.EventSystemWrapper;
+import com.bluefrost.clientsoftware.client1.listeners.CMListener;
 import com.bluefrost.clientsoftware.client1.listeners.KeyObjectListener;
 import com.bluefrost.clientsoftware.client1.listeners.LoginSuccessListener;
 import com.bluefrost.clientsoftware.client1.listeners.MessageEventListener;
@@ -21,6 +24,7 @@ public class Main {
 			registerListeners();
 			Crypto.genKeys();
 			Connection.connect("LocalHost", 9090);
+			//Connection.sendObject(new LoginObject("root","toor").toByteArray());
 		}catch(Exception e){}
 	}
 	
@@ -29,5 +33,6 @@ public class Main {
 		esw.addListener(new MessageEventListener());
 		esw.addListener(new KeyObjectListener());
 		esw.addListener(new LoginSuccessListener());
+		esw.addListener(new CMListener());
 	}
 }

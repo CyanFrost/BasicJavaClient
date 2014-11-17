@@ -13,11 +13,15 @@ public class MessageEventListener implements Listener{
 	@EventHandler
 	public void messageRecievedEvent(MessageEvent me){
 		try{
-			System.out.println(new String(me.b));
+			System.out.println(Utils.fromByteArray(me.b).getClass());
+			Main.getDefaultEventSystem().listen(Utils.fromByteArray(me.b));
 		}catch(Exception e){e.printStackTrace();}
 	}
 	
 	public static class MessageEvent {
+		private boolean canceled = false;
+		public void setCanceled(boolean b){canceled = b;}
+		public boolean isCanceled(){return canceled;}
 		private byte[]  b = null;
 		public byte[] getBytes(){return b;}
 		public MessageEvent setBytes(byte[] c){ b = c; return this;}

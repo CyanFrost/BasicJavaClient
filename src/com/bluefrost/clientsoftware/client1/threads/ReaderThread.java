@@ -13,6 +13,7 @@ public class ReaderThread extends Thread{
 			try{
 				Connection.getInputStream().read(b);
 				Main.getDefaultEventSystem().listen(me.setBytes(b));
+				if(me.isCanceled())break;
 			}catch(Exception e){e.printStackTrace(); break;}
 		}
 		System.out.println("Reader Thread Ended!");

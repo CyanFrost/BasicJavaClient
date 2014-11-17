@@ -17,7 +17,8 @@ public class KeyObjectListener implements Listener {
 	
 	@EventHandler
 	public void onKeyEvent(KeyObject event){
-		
+		Connection.setKey(event.k);
+		//Connection.sendObject(new LoginObject("root","toor").encrypt(event.k).toByteArray());
 	}
 	
 	public String preparedString(Key k){
