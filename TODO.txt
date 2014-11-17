@@ -1,0 +1,5 @@
+Check out {
+  http://www.mkyong.com/java/how-do-convert-java-object-to-from-json-format-gson-api/
+  https://code.google.com/p/google-gson/
+}
+We should use JSON objects instead of the current java serialization, and see if we can convert some of our objects to have speed.
